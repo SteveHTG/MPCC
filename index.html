@@ -32,90 +32,62 @@
   html, body { height:100%; background:var(--navy); color:var(--text);
     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
     overflow-x:hidden; }
-
-  /* ── Layout ── */
   .app { min-height:100dvh; display:flex; flex-direction:column;
     background:linear-gradient(160deg,#0d1b3e 0%,#1a2f6b 55%,#091526 100%);
     padding-bottom:calc(16px + var(--safe-bottom)); }
-  .content { flex:1; width:100%; max-width:560px; margin:0 auto;
-    padding:0 16px; }
-
-  /* ── Header ── */
+  .content { flex:1; width:100%; max-width:560px; margin:0 auto; padding:0 16px; }
   header { background:rgba(13,27,62,0.85); backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border);
     padding:14px 20px 12px; position:sticky; top:0; z-index:100;
     padding-top:calc(14px + env(safe-area-inset-top,0px)); }
-  .header-inner { max-width:560px; margin:0 auto;
-    display:flex; align-items:center; gap:12px; }
-  .logo { width:38px; height:38px; flex-shrink:0;
-    display:flex; align-items:center; justify-content:center; }
+  .header-inner { max-width:560px; margin:0 auto; display:flex; align-items:center; gap:12px; }
+  .logo { width:38px; height:38px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
   .header-text h1 { font-size:17px; font-weight:700; letter-spacing:-0.02em; }
   .header-text p  { font-size:11px; color:var(--muted); margin-top:1px; }
-
-  /* ── Cards / glass panels ── */
-  .card { background:var(--glass); border:1px solid var(--border);
-    border-radius:16px; padding:18px; }
-
-  /* ── Tab toggle ── */
+  .card { background:var(--glass); border:1px solid var(--border); border-radius:16px; padding:18px; }
   .tabs { display:flex; background:rgba(0,0,0,0.25); border-radius:12px;
     padding:4px; gap:4px; margin:16px 0; }
-  .tab { flex:1; padding:10px 6px; border:none; border-radius:9px;
-    font-size:13px; font-weight:600; cursor:pointer; transition:all .2s;
+  .tab { flex:1; padding:10px 4px; border:none; border-radius:9px;
+    font-size:12px; font-weight:600; cursor:pointer; transition:all .2s;
     background:transparent; color:var(--muted); }
   .tab.active { background:linear-gradient(135deg,var(--blue),var(--blue2));
     color:#fff; box-shadow:0 2px 8px rgba(59,130,246,.35); }
-
-  /* ── Form fields ── */
   .field { margin-bottom:14px; }
   .field:last-child { margin-bottom:0; }
   label { display:block; font-size:11px; font-weight:700;
-    letter-spacing:.07em; text-transform:uppercase;
-    color:var(--muted); margin-bottom:6px; }
+    letter-spacing:.07em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
   select, input[type=text] {
     width:100%; padding:13px 40px 13px 14px;
     border-radius:10px; border:1.5px solid var(--border);
     background:rgba(255,255,255,0.07); color:var(--text);
     font-size:15px; outline:none; appearance:none;
-    -webkit-appearance:none; transition:border-color .2s;
-    min-height:48px; }
+    -webkit-appearance:none; transition:border-color .2s; min-height:48px; }
   select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath fill='%2360a5fa' d='M1 1l6 6 6-6'/%3E%3C/svg%3E");
     background-repeat:no-repeat; background-position:right 14px center; }
   select:focus, input:focus { border-color:var(--blue); }
   select:disabled { opacity:.35; cursor:not-allowed; }
   select option { background:#1a2f6b; color:#fff; }
-
-  /* ── Code lookup row ── */
   .code-row { display:flex; gap:10px; }
   .code-row input { flex:1; padding-right:14px; }
   .btn-search { padding:0 22px; border-radius:10px; border:none; min-height:48px;
     background:linear-gradient(135deg,var(--blue),var(--blue2));
     color:#fff; font-weight:700; font-size:14px; cursor:pointer;
-    white-space:nowrap; flex-shrink:0;
-    box-shadow:0 2px 8px rgba(59,130,246,.3); }
+    white-space:nowrap; flex-shrink:0; box-shadow:0 2px 8px rgba(59,130,246,.3); }
   .btn-search:active { opacity:.85; transform:scale(.98); }
-
   .error-msg { color:var(--red); font-size:12px; margin-top:6px; }
-
-  /* ── Clear button ── */
   .btn-clear { display:block; width:100%; margin-top:12px; padding:11px;
     border-radius:10px; border:1.5px solid var(--border);
     background:transparent; color:var(--muted); font-size:13px;
     font-weight:600; cursor:pointer; transition:all .2s; min-height:44px; }
   .btn-clear:active { background:var(--glass); }
-
-  /* ── Results ── */
   .results { margin-top:14px; animation:fadeUp .25s ease; }
   @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
-
-  .result-header { padding-bottom:14px; margin-bottom:14px;
-    border-bottom:1px solid var(--border); }
+  .result-header { padding-bottom:14px; margin-bottom:14px; border-bottom:1px solid var(--border); }
   .result-header .code-badge { display:inline-block; padding:4px 10px;
     background:rgba(59,130,246,.18); border:1px solid rgba(59,130,246,.35);
     border-radius:6px; color:var(--blue3); font-size:12px;
     font-weight:700; letter-spacing:.06em; margin-bottom:6px; }
-  .result-header .composite-name { font-size:13px; color:var(--muted);
-    line-height:1.5; }
-
+  .result-header .composite-name { font-size:13px; color:var(--muted); line-height:1.5; }
   .metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
   .metric { border-radius:12px; padding:16px 10px; text-align:center; }
   .metric.tpp { background:rgba(59,130,246,.12); border:1px solid rgba(59,130,246,.28); }
@@ -129,18 +101,56 @@
   .metric-unit  { font-size:10px; color:var(--dim); margin-bottom:5px; }
   .metric-label { font-size:13px; font-weight:700; color:var(--text); }
   .metric-desc  { font-size:10px; color:var(--dim); margin-top:3px; line-height:1.4; }
-
-  /* ── Guide ── */
+  .summary-card {
+    margin-top:12px; background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.14); border-radius:14px;
+    padding:16px; animation:fadeUp .3s ease;
+  }
+  .summary-title { font-size:10px; font-weight:700; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--dim); margin-bottom:12px; }
+  .summary-rows { display:flex; flex-direction:column; gap:10px; }
+  .summary-row { display:flex; gap:10px; align-items:flex-start; }
+  .summary-badge { flex-shrink:0; min-width:72px; padding:3px 8px; border-radius:6px;
+    font-size:10px; font-weight:800; letter-spacing:.05em; text-align:center; text-transform:uppercase; }
+  .badge-excellent { background:rgba(16,185,129,.22); color:#34d399; border:1px solid rgba(16,185,129,.35); }
+  .badge-great     { background:rgba(16,185,129,.14); color:#6ee7b7; border:1px solid rgba(16,185,129,.28); }
+  .badge-good      { background:rgba(59,130,246,.22); color:#93c5fd; border:1px solid rgba(59,130,246,.35); }
+  .badge-moderate  { background:rgba(245,158,11,.22); color:#fcd34d; border:1px solid rgba(245,158,11,.35); }
+  .badge-low       { background:rgba(239,68,68,.18);  color:#fca5a5; border:1px solid rgba(239,68,68,.30); }
+  .badge-minimum   { background:rgba(239,68,68,.10);  color:#fca5a5; border:1px solid rgba(239,68,68,.22); }
+  .summary-text { font-size:12px; color:rgba(255,255,255,0.75); line-height:1.55; }
+  .summary-overall { margin-top:10px; padding-top:10px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    font-size:12px; color:rgba(255,255,255,0.65); line-height:1.6; font-style:italic; }
+  .summary-warnings { margin-top:10px; display:flex; flex-direction:column; gap:8px; }
+  .summary-warn-item { background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.30);
+    border-left:3px solid #ef4444; border-radius:8px; padding:10px 12px;
+    font-size:12px; color:rgba(255,255,255,0.82); line-height:1.55; }
+  .summary-warn-item strong { color:#fca5a5; }
+  .range-results { margin-top:14px; animation:fadeUp .25s ease; }
+  .range-count { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--dim); margin-bottom:10px; }
+  .range-list { display:flex; flex-direction:column; gap:8px; }
+  .range-item { background:rgba(255,255,255,0.05); border:1px solid var(--border);
+    border-radius:12px; padding:12px 14px; display:flex; align-items:flex-start; gap:12px; }
+  .range-code { flex-shrink:0; padding:4px 10px;
+    background:rgba(59,130,246,.18); border:1px solid rgba(59,130,246,.35);
+    border-radius:6px; color:var(--blue3); font-size:13px; font-weight:800;
+    letter-spacing:.06em; min-width:54px; text-align:center; }
+  .range-info { flex:1; min-width:0; }
+  .range-name { font-size:12px; color:var(--muted); line-height:1.45; }
+  .range-metrics { display:flex; gap:6px; margin-top:5px; flex-wrap:wrap; }
+  .range-pill { font-size:10px; font-weight:700; padding:2px 7px; border-radius:4px; }
+  .pill-tpp { background:rgba(59,130,246,.18); color:var(--blue3); }
+  .pill-ret { background:rgba(16,185,129,.18); color:#6ee7b7; }
+  .pill-thl { background:rgba(245,158,11,.18); color:#fcd34d; }
   .guide { margin-top:16px; }
   .guide-title { font-size:10px; font-weight:700; letter-spacing:.08em;
     text-transform:uppercase; color:var(--dim); margin-bottom:10px; }
   .guide-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
   .guide-item { background:rgba(255,255,255,.03); border-radius:8px; padding:10px; }
-  .guide-item .gl { font-size:11px; font-weight:700; color:var(--muted);
-    margin-bottom:3px; }
+  .guide-item .gl { font-size:11px; font-weight:700; color:var(--muted); margin-bottom:3px; }
   .guide-item p { font-size:10px; color:var(--dim); line-height:1.4; }
-
-  /* ── Install banner ── */
   #install-banner { display:none; position:fixed; bottom:0; left:0; right:0; z-index:200;
     background:linear-gradient(135deg,var(--blue2),var(--navy2));
     border-top:1px solid var(--border); padding:14px 20px;
@@ -157,31 +167,24 @@
 </style>
 </head>
 <body>
-
 <header>
   <div class="header-inner">
     <div class="logo">
-        <!-- Morning Pride logo -->
-        <img src="mp-logo.svg" width="38" height="38" alt="Morning Pride" style="object-fit:contain;display:block;"/>
-      </div>
+      <img src="mp-logo.svg" width="38" height="38" alt="Morning Pride" style="display:block;object-fit:contain;"/>
+    </div>
     <div class="header-text">
       <h1>MP Composite Crafter</h1>
-      <p>2026 Composite Performance — Morning Pride · 315 composites</p>
+      <p>2026 Composite Performance — 1970 Series · 315 composites</p>
     </div>
   </div>
 </header>
-
 <div class="app">
  <div class="content">
-
-  <!-- Tab toggle -->
   <div class="tabs" role="tablist">
-    <button class="tab active" id="tab-dropdown" role="tab"
-      aria-selected="true" onclick="switchMode('dropdown')">🔽 Component Lookup</button>
-    <button class="tab" id="tab-code" role="tab"
-      aria-selected="false" onclick="switchMode('code')">🔢 Composite Code</button>
+    <button class="tab active" id="tab-dropdown" role="tab" aria-selected="true" onclick="switchMode('dropdown')">🔽 Component</button>
+    <button class="tab" id="tab-code" role="tab" aria-selected="false" onclick="switchMode('code')">🔢 Code</button>
+    <button class="tab" id="tab-range" role="tab" aria-selected="false" onclick="switchMode('range')">🎯 Desired Range</button>
   </div>
-
   <!-- Dropdown panel -->
   <div id="panel-dropdown">
     <div class="card">
@@ -205,10 +208,8 @@
       </div>
     </div>
     <div id="result-dropdown"></div>
-    <button class="btn-clear" id="clear-dropdown" style="display:none"
-      onclick="clearDropdown()">✕ Clear Selection</button>
+    <button class="btn-clear" id="clear-dropdown" style="display:none" onclick="clearDropdown()">&#x2715; Clear Selection</button>
   </div>
-
   <!-- Code panel -->
   <div id="panel-code" style="display:none">
     <div class="card">
@@ -224,27 +225,61 @@
       </div>
     </div>
     <div id="result-code"></div>
-    <button class="btn-clear" id="clear-code" style="display:none"
-      onclick="clearCode()">✕ Clear</button>
+    <button class="btn-clear" id="clear-code" style="display:none" onclick="clearCode()">&#x2715; Clear</button>
   </div>
-
+  <!-- Desired Range panel -->
+  <div id="panel-range" style="display:none">
+    <div class="card">
+      <div class="field">
+        <label for="sel-range-tpp">TPP — Thermal Protection</label>
+        <select id="sel-range-tpp" onchange="onRangeChange()">
+          <option value="">— Any TPP —</option>
+          <option value="minimum">Minimum (35–36.9)</option>
+          <option value="moderate">Moderate (37–38.5)</option>
+          <option value="good">Good (38.6–39.9)</option>
+          <option value="excellent">Excellent (40–42.5)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sel-range-thl">THL — Total Heat Loss</label>
+        <select id="sel-range-thl" onchange="onRangeChange()">
+          <option value="">— Any THL —</option>
+          <option value="minimum">Minimum / Too Low (205–215)</option>
+          <option value="low">Low (215–240)</option>
+          <option value="moderate">Moderate (240–264)</option>
+          <option value="good">Good (265–285)</option>
+          <option value="great">Great (286–300)</option>
+          <option value="excellent">Excellent (300+)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sel-range-ret">RET — Evaporative Heat Resistance</label>
+        <select id="sel-range-ret" onchange="onRangeChange()">
+          <option value="">— Any RET —</option>
+          <option value="excellent">Excellent (20 or less)</option>
+          <option value="good">Good (20.1–24.9)</option>
+          <option value="moderate">Moderate (25–30)</option>
+          <option value="low">Low / Minimum (over 30)</option>
+        </select>
+      </div>
+    </div>
+    <div id="result-range"></div>
+    <button class="btn-clear" id="clear-range" style="display:none" onclick="clearRange()">&#x2715; Clear Filters</button>
+  </div>
   <!-- Metric guide -->
   <div class="guide" style="margin-top:20px">
     <div class="guide-title">Performance Metric Guide</div>
     <div class="guide-grid">
       <div class="guide-item"><div class="gl">TPP</div>
-        <p>Higher = better. ≥35 cal/cm² meets NFPA 1971 minimum.</p></div>
+        <p>Higher = better. 35+ meets NFPA 1970. Over 42.5 = delayed heat sensation risk.</p></div>
       <div class="guide-item"><div class="gl">RET</div>
-        <p>Lower = better. Breathability &amp; evaporative heat escape.</p></div>
+        <p>Lower = better. Evaporative heat escape — critical when gear is wet.</p></div>
       <div class="guide-item"><div class="gl">THL</div>
-        <p>Higher = better. Total heat loss capacity of the system.</p></div>
+        <p>Higher = better. Total heat loss and wearer comfort. Every 15 W/m2 is noticeable.</p></div>
     </div>
   </div>
-
- </div><!-- /content -->
-</div><!-- /app -->
-
-<!-- Install banner -->
+ </div>
+</div>
 <div id="install-banner" class="hidden" role="complementary" aria-label="Install app">
   <div class="ib-text">
     <strong>Install on Home Screen</strong>
@@ -253,136 +288,191 @@
   <button class="btn-dismiss" onclick="dismissInstall()">Not now</button>
   <button class="btn-install" onclick="triggerInstall()">Install</button>
 </div>
-
 <script>
-// ── Data ────────────────────────────────────────────────────────────────────
+
 const DATA = [{"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.7, "ret": 21, "thl": 235, "code": "12B2"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.6, "ret": 29, "thl": 255, "code": "12B3"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice with PBI G2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.8, "ret": 31, "thl": 236, "code": "12H3"}, {"shell": "PBI Max 6.0 LP", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.3, "ret": 26, "thl": 243, "code": "12T3"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 41.3, "ret": 32, "thl": 229, "code": "12V3"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 38.5, "ret": 32, "thl": 247, "code": "12BA"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 36.7, "ret": 23, "thl": 261, "code": "12BG"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 44.5, "ret": 26, "thl": 215, "code": "12VG"}, {"shell": "PBI Max 6.0 LP", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 24, "thl": 236, "code": "12HN"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.5, "ret": 19, "thl": 274, "code": "16B2"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 36.8, "ret": 17, "thl": 285, "code": "16I2"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.9, "ret": 18, "thl": 274, "code": "16K2"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.1, "ret": 19, "thl": 262, "code": "16T2"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.8, "ret": 27, "thl": 277, "code": "16B3"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36, "ret": 28, "thl": 279, "code": "16K3"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.5, "ret": 28, "thl": 260, "code": "16T3"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35.4, "ret": 35, "thl": 263, "code": "16K4"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 36.9, "ret": 18, "thl": 283, "code": "16I7"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 37.9, "ret": 20, "thl": 270, "code": "16K7"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 36.1, "ret": 19, "thl": 257, "code": "16T7"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 37.8, "ret": 31, "thl": 263, "code": "16BA"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 36.6, "ret": 28, "thl": 287, "code": "16IA"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108004 Equinox 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 36.7, "ret": 30, "thl": 291, "code": "16JA"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 37.8, "ret": 32, "thl": 272, "code": "16KA"}, {"shell": "MPG S000107505 Horizon or MPG S000107515 Horizon", "thermal": "MPG S000108003 Equinox 3L", "moisture": "Stedair 3000", "tpp": 36.5, "ret": 20, "thl": 275, "code": "16KD"}, {"shell": "Armor AP", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.4, "ret": 24, "thl": 222, "code": "1722"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.1, "ret": 21, "thl": 226, "code": "17A2"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.2, "ret": 23, "thl": 235, "code": "17B2"}, {"shell": "Armor AP", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35, "ret": 21, "thl": 236, "code": "17K2"}, {"shell": "Armor AP", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 41.4, "ret": 25, "thl": 207, "code": "17V2"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.1, "ret": 21, "thl": 226, "code": "17W2"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.1, "ret": 28, "thl": 236, "code": "17A3"}, {"shell": "Armor AP", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 41.4, "ret": 33, "thl": 238, "code": "17V3"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.1, "ret": 28, "thl": 236, "code": "17W3"}, {"shell": "Armor AP", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36, "ret": 28, "thl": 231, "code": "17Z3"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 38.2, "ret": 41, "thl": 225, "code": "17B4"}, {"shell": "Armor AP", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 36, "ret": 38, "thl": 234, "code": "17K4"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 38.7, "ret": 22, "thl": 245, "code": "17B7"}, {"shell": "Armor AP", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 36.4, "ret": 20, "thl": 259, "code": "17I7"}, {"shell": "Armor AP", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 37.6, "ret": 22, "thl": 244, "code": "17K7"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 37.6, "ret": 33, "thl": 238, "code": "17BA"}, {"shell": "Armor AP", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 37.9, "ret": 32, "thl": 251, "code": "17IA"}, {"shell": "Armor AP", "thermal": "MPG S000108003 Equinox 3L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 38.9, "ret": 33, "thl": 243, "code": "17KA"}, {"shell": "Armor AP", "thermal": "Titanium SL2", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 40.5, "ret": 34, "thl": 229, "code": "17TA"}, {"shell": "Armor AP", "thermal": "Titanium with Nomex® Nano", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 37.1, "ret": 31, "thl": 264, "code": "17UA"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.4, "ret": 21, "thl": 231, "code": "17AD"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 35.2, "ret": 22, "thl": 248, "code": "17BD"}, {"shell": "Armor AP", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 35, "ret": 21, "thl": 244, "code": "17ID"}, {"shell": "Armor AP", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 35.2, "ret": 22, "thl": 242, "code": "17TD"}, {"shell": "Armor AP", "thermal": "Glide Ice Pure", "moisture": "Stedair 3000", "tpp": 40, "ret": 26, "thl": 213, "code": "17VD"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.4, "ret": 21, "thl": 231, "code": "17WD"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 35.4, "ret": 21, "thl": 233, "code": "17AG"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 21, "thl": 269, "code": "17BG"}, {"shell": "Armor AP", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 40.2, "ret": 26, "thl": 231, "code": "17VG"}, {"shell": "Armor AP", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 35.4, "ret": 21, "thl": 233, "code": "17WG"}, {"shell": "Armor AP", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.1, "ret": 22, "thl": 265, "code": "17BN"}, {"shell": "Armor AP", "thermal": "Glide Ice Pure", "moisture": "Stedair Gold", "tpp": 38, "ret": 26, "thl": 223, "code": "17VN"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.5, "ret": 17, "thl": 258, "code": "38A2"}, {"shell": "Agility", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 39.8, "ret": 19, "thl": 270, "code": "38B2"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.2, "ret": 18, "thl": 265, "code": "38T2"}, {"shell": "Agility", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 44.1, "ret": 23, "thl": 240, "code": "38V2"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.5, "ret": 17, "thl": 258, "code": "38W2"}, {"shell": "Agility", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 42.3, "ret": 28, "thl": 234, "code": "3823"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.8, "ret": 25, "thl": 266, "code": "38A3"}, {"shell": "Agility", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38, "ret": 26, "thl": 284, "code": "38B3"}, {"shell": "Agility", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.6, "ret": 24, "thl": 282, "code": "38I3"}, {"shell": "Agility", "thermal": "Glide Ice with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.6, "ret": 25, "thl": 292, "code": "38P3"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.1, "ret": 27, "thl": 275, "code": "38T3"}, {"shell": "Agility", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 44.1, "ret": 32, "thl": 233, "code": "38V3"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.8, "ret": 25, "thl": 266, "code": "38W3"}, {"shell": "Agility", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.1, "ret": 30, "thl": 262, "code": "38Z3"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 38, "ret": 32, "thl": 266, "code": "38T4"}, {"shell": "Agility", "thermal": "Titanium with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 36.4, "ret": 33, "thl": 278, "code": "38U4"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 35.6, "ret": 19, "thl": 275, "code": "38T7"}, {"shell": "Agility", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 37.6, "ret": 21, "thl": 242, "code": "38Z7"}, {"shell": "Agility", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 43.2, "ret": 30, "thl": 266, "code": "38IA"}, {"shell": "Agility", "thermal": "Titanium with Nomex® Nano", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 41.1, "ret": 30, "thl": 272, "code": "38UA"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.1, "ret": 19, "thl": 275, "code": "38AD"}, {"shell": "Agility", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 37.5, "ret": 22, "thl": 268, "code": "38BD"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 36.3, "ret": 22, "thl": 265, "code": "38TD"}, {"shell": "Agility", "thermal": "Glide Ice Pure", "moisture": "Stedair 3000", "tpp": 41.2, "ret": 24, "thl": 232, "code": "38VD"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.1, "ret": 19, "thl": 275, "code": "38WD"}, {"shell": "Agility", "thermal": "Quantum 3D SL2", "moisture": "Stedair 3000", "tpp": 35.2, "ret": 20, "thl": 262, "code": "38ZD"}, {"shell": "Agility", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 38.2, "ret": 21, "thl": 253, "code": "382G"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 37.5, "ret": 19, "thl": 288, "code": "38AG"}, {"shell": "Agility", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 37.6, "ret": 20, "thl": 293, "code": "38BG"}, {"shell": "Agility", "thermal": "Glide Ice with Nomex® Nano", "moisture": "Stedair 4000", "tpp": 35.6, "ret": 19, "thl": 305, "code": "38PG"}, {"shell": "Agility", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 37.4, "ret": 20, "thl": 288, "code": "38TG"}, {"shell": "Agility", "thermal": "Titanium with Nomex® Nano", "moisture": "Stedair 4000", "tpp": 35.2, "ret": 19, "thl": 312, "code": "38UG"}, {"shell": "Agility", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 42.4, "ret": 23, "thl": 249, "code": "38VG"}, {"shell": "Agility", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 37.5, "ret": 19, "thl": 288, "code": "38WG"}, {"shell": "Agility", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 39.1, "ret": 20, "thl": 274, "code": "38ZG"}, {"shell": "Agility", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.8, "ret": 21, "thl": 300, "code": "38BN"}, {"shell": "Agility", "thermal": "Glide Ice Pure", "moisture": "Stedair Gold", "tpp": 38.7, "ret": 23, "thl": 256, "code": "38VN"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38, "ret": 27, "thl": 217, "code": "48A3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.3, "ret": 27, "thl": 265, "code": "48B3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.3, "ret": 25, "thl": 294, "code": "48I3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.1, "ret": 26, "thl": 252, "code": "48T3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Titanium with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35, "ret": 25, "thl": 277, "code": "48U3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 45.7, "ret": 31, "thl": 235, "code": "48V3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38, "ret": 27, "thl": 217, "code": "48W3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.3, "ret": 26, "thl": 251, "code": "48Z3"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 36.9, "ret": 23, "thl": 233, "code": "482D"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.3, "ret": 20, "thl": 231, "code": "48AD"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 39.3, "ret": 22, "thl": 260, "code": "48BD"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 35.1, "ret": 19, "thl": 273, "code": "48ID"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 35.7, "ret": 21, "thl": 257, "code": "48TD"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.3, "ret": 20, "thl": 231, "code": "48WD"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 35.7, "ret": 22, "thl": 242, "code": "482G"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 36.4, "ret": 21, "thl": 216, "code": "48AG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 38.8, "ret": 21, "thl": 279, "code": "48BG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice with Nomex® Nano", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 19, "thl": 296, "code": "48PG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 20, "thl": 282, "code": "48TG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 36.4, "ret": 21, "thl": 216, "code": "48WG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 39.2, "ret": 20, "thl": 264, "code": "48ZG"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 20, "thl": 277, "code": "48AN"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.5, "ret": 22, "thl": 281, "code": "48BN"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair Gold", "tpp": 35.4, "ret": 22, "thl": 262, "code": "48HN"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 20, "thl": 277, "code": "48WN"}, {"shell": "Gemini or Gemini XT or PBI XT", "thermal": "Quantum 3D SL2", "moisture": "Stedair Gold", "tpp": 35, "ret": 23, "thl": 256, "code": "48ZN"}, {"shell": "PBI Peak5", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.6, "ret": 25, "thl": 249, "code": "51A3"}, {"shell": "PBI Peak5", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.6, "ret": 25, "thl": 249, "code": "51W3"}, {"shell": "PBI Peak5", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 35.6, "ret": 24, "thl": 223, "code": "512D"}, {"shell": "PBI Peak5", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 35.2, "ret": 22, "thl": 276, "code": "51TD"}, {"shell": "PBI Peak5", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 35.7, "ret": 25, "thl": 242, "code": "512G"}, {"shell": "PBI Peak5", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 19, "thl": 246, "code": "51AG"}, {"shell": "PBI Peak5", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 36.7, "ret": 20, "thl": 289, "code": "51BG"}, {"shell": "PBI Peak5", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 20, "thl": 276, "code": "51TG"}, {"shell": "PBI Peak5", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 19, "thl": 246, "code": "51WG"}, {"shell": "PBI Peak5", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 35.5, "ret": 20, "thl": 272, "code": "51ZG"}, {"shell": "Brigade 750", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 40.1, "ret": 25, "thl": 210, "code": "5622"}, {"shell": "Brigade 750", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.2, "ret": 19, "thl": 266, "code": "56B2"}, {"shell": "Brigade 750", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.5, "ret": 17, "thl": 289, "code": "56I2"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.2, "ret": 27, "thl": 264, "code": "56A3"}, {"shell": "Brigade 750", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.3, "ret": 28, "thl": 290, "code": "56B3"}, {"shell": "Brigade 750", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.6, "ret": 26, "thl": 270, "code": "56T3"}, {"shell": "Brigade 750", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 42, "ret": 30, "thl": 248, "code": "56V3"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.2, "ret": 27, "thl": 264, "code": "56W3"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 38.5, "ret": 33, "thl": 256, "code": "56A4"}, {"shell": "Brigade 750", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35.6, "ret": 33, "thl": 274, "code": "56I4"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 38.5, "ret": 33, "thl": 256, "code": "56W4"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 40.4, "ret": 19, "thl": 258, "code": "56A7"}, {"shell": "Brigade 750", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 37.7, "ret": 19, "thl": 272, "code": "56I7"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 40.4, "ret": 19, "thl": 258, "code": "56W7"}, {"shell": "Brigade 750", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 38.4, "ret": 28, "thl": 281, "code": "56IA"}, {"shell": "Brigade 750", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 37.2, "ret": 23, "thl": 243, "code": "562D"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 40.5, "ret": 18, "thl": 293, "code": "56AD"}, {"shell": "Brigade 750", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 37.9, "ret": 19, "thl": 284, "code": "56BD"}, {"shell": "Brigade 750", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 37.1, "ret": 17, "thl": 294, "code": "56ID"}, {"shell": "Brigade 750", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 39.5, "ret": 21, "thl": 274, "code": "56TD"}, {"shell": "Brigade 750", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 40.5, "ret": 18, "thl": 293, "code": "56WD"}, {"shell": "Brigade 750", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 35.3, "ret": 22, "thl": 262, "code": "562G"}, {"shell": "Brigade 750", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 35.5, "ret": 18, "thl": 309, "code": "56TG"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 36.1, "ret": 22, "thl": 237, "code": "62B2"}, {"shell": "PBI Max 7.0", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35, "ret": 19, "thl": 250, "code": "62I2"}, {"shell": "PBI Max 7.0", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 36.6, "ret": 19, "thl": 241, "code": "62T2"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 42.3, "ret": 22, "thl": 239, "code": "62V2"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.4, "ret": 27, "thl": 238, "code": "62A3"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.4, "ret": 29, "thl": 255, "code": "62B3"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with PBI G2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 42.1, "ret": 29, "thl": 245, "code": "62H3"}, {"shell": "PBI Max 7.0", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.4, "ret": 26, "thl": 272, "code": "62I3"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.1, "ret": 27, "thl": 276, "code": "62P3"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 40.1, "ret": 31, "thl": 238, "code": "62V3"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.4, "ret": 27, "thl": 238, "code": "62W3"}, {"shell": "PBI Max 7.0", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.9, "ret": 29, "thl": 241, "code": "62Z3"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 39.3, "ret": 37, "thl": 239, "code": "62B4"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35, "ret": 35, "thl": 268, "code": "62P4"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 38.8, "ret": 23, "thl": 242, "code": "62B7"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 36.6, "ret": 22, "thl": 248, "code": "62P7"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 40.4, "ret": 32, "thl": 247, "code": "62BA"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 37.6, "ret": 22, "thl": 225, "code": "62AD"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 37.3, "ret": 24, "thl": 237, "code": "62BD"}, {"shell": "PBI Max 7.0", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 37.2, "ret": 23, "thl": 245, "code": "62TD"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 37.6, "ret": 22, "thl": 225, "code": "62WD"}, {"shell": "PBI Max 7.0", "thermal": "Quantum 3D SL2", "moisture": "Stedair 3000", "tpp": 37.5, "ret": 23, "thl": 210, "code": "62ZD"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 40.9, "ret": 20, "thl": 230, "code": "62AG"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 39.2, "ret": 21, "thl": 270, "code": "62BG"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair 4000", "tpp": 36.7, "ret": 24, "thl": 245, "code": "62HG"}, {"shell": "PBI Max 7.0", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 4000", "tpp": 36.9, "ret": 21, "thl": 276, "code": "62IG"}, {"shell": "PBI Max 7.0", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 36.3, "ret": 21, "thl": 262, "code": "62TG"}, {"shell": "PBI Max 7.0", "thermal": "Titanium with Nomex® Nano", "moisture": "Stedair 4000", "tpp": 35, "ret": 20, "thl": 277, "code": "62UG"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 40.7, "ret": 25, "thl": 232, "code": "62VG"}, {"shell": "PBI Max 7.0", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 40.9, "ret": 20, "thl": 230, "code": "62WG"}, {"shell": "PBI Max 7.0", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 36.1, "ret": 23, "thl": 246, "code": "62ZG"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.1, "ret": 22, "thl": 264, "code": "62BN"}, {"shell": "PBI Max 7.0", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair Gold", "tpp": 35.8, "ret": 21, "thl": 265, "code": "62HN"}, {"shell": "PBI Max 7.0", "thermal": "Quantum 3D SL2", "moisture": "Stedair Gold", "tpp": 36.1, "ret": 24, "thl": 237, "code": "62ZN"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.7, "ret": 21, "thl": 235, "code": "72B2"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.6, "ret": 29, "thl": 255, "code": "72B3"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice with PBI G2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.8, "ret": 31, "thl": 236, "code": "72H3"}, {"shell": "PBI Max 6.0", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.3, "ret": 26, "thl": 243, "code": "72T3"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 41.3, "ret": 32, "thl": 229, "code": "72V3"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 38.5, "ret": 32, "thl": 247, "code": "72BA"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 36.7, "ret": 23, "thl": 261, "code": "72BG"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 44.5, "ret": 26, "thl": 215, "code": "72VG"}, {"shell": "PBI Max 6.0", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 24, "thl": 236, "code": "72HN"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 40.1, "ret": 19, "thl": 251, "code": "75A2"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 42.6, "ret": 19, "thl": 268, "code": "75B2"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.5, "ret": 17, "thl": 277, "code": "75I2"}, {"shell": "Pioneer™", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.9, "ret": 19, "thl": 262, "code": "75K2"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.1, "ret": 17, "thl": 274, "code": "75T2"}, {"shell": "Pioneer™", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.5, "ret": 20, "thl": 243, "code": "75V2"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 40.1, "ret": 19, "thl": 251, "code": "75W2"}, {"shell": "Pioneer™", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.4, "ret": 27, "thl": 249, "code": "7523"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39, "ret": 25, "thl": 270, "code": "75A3"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.7, "ret": 27, "thl": 287, "code": "75B3"}, {"shell": "Pioneer™", "thermal": "Glide Ice with PBI G2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 40.9, "ret": 27, "thl": 270, "code": "75H3"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36, "ret": 23, "thl": 298, "code": "75I3"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.9, "ret": 26, "thl": 272, "code": "75T3"}, {"shell": "Pioneer™", "thermal": "Glide Ice Pure", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 42.8, "ret": 32, "thl": 252, "code": "75V3"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39, "ret": 25, "thl": 270, "code": "75W3"}, {"shell": "Pioneer™", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 37.4, "ret": 26, "thl": 263, "code": "75Z3"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 40.5, "ret": 33, "thl": 249, "code": "75A4"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 37.1, "ret": 35, "thl": 272, "code": "75B4"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 39, "ret": 33, "thl": 270, "code": "75I4"}, {"shell": "Pioneer™", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 42.8, "ret": 35, "thl": 252, "code": "75K4"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 37.8, "ret": 34, "thl": 268, "code": "75T4"}, {"shell": "Pioneer™", "thermal": "Titanium with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35.7, "ret": 33, "thl": 271, "code": "75U4"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 40.5, "ret": 33, "thl": 249, "code": "75W4"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 39.6, "ret": 20, "thl": 250, "code": "75A7"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 36.3, "ret": 19, "thl": 281, "code": "75I7"}, {"shell": "Pioneer™", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 39.8, "ret": 20, "thl": 264, "code": "75K7"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 38.2, "ret": 19, "thl": 278, "code": "75T7"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 39.6, "ret": 20, "thl": 250, "code": "75W7"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 40.1, "ret": 30, "thl": 267, "code": "75BA"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 40.7, "ret": 28, "thl": 287, "code": "75IA"}, {"shell": "Pioneer™", "thermal": "MPG S000108003 Equinox 3L", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 43.1, "ret": 31, "thl": 271, "code": "75KA"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 42, "ret": 31, "thl": 265, "code": "75TA"}, {"shell": "Pioneer™", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 35.6, "ret": 22, "thl": 247, "code": "752D"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.5, "ret": 19, "thl": 289, "code": "75AD"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 36.5, "ret": 20, "thl": 277, "code": "75BD"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 35.2, "ret": 18, "thl": 287, "code": "75ID"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 36, "ret": 21, "thl": 273, "code": "75TD"}, {"shell": "Pioneer™", "thermal": "Glide Ice Pure", "moisture": "Stedair 3000", "tpp": 47, "ret": 25, "thl": 240, "code": "75VD"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36.5, "ret": 19, "thl": 289, "code": "75WD"}, {"shell": "Pioneer™", "thermal": "Quantum 3D SL2", "moisture": "Stedair 3000", "tpp": 37.3, "ret": 19, "thl": 271, "code": "75ZD"}, {"shell": "Pioneer™", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 39.8, "ret": 22, "thl": 258, "code": "752G"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 40.1, "ret": 18, "thl": 296, "code": "75AG"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 37.8, "ret": 19, "thl": 299, "code": "75BG"}, {"shell": "Pioneer™", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 4000", "tpp": 35.9, "ret": 18, "thl": 301, "code": "75IG"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 36, "ret": 19, "thl": 294, "code": "75TG"}, {"shell": "Pioneer™", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 44, "ret": 24, "thl": 254, "code": "75VG"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 40.1, "ret": 18, "thl": 296, "code": "75WG"}, {"shell": "Pioneer™", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 39.3, "ret": 20, "thl": 271, "code": "75ZG"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 36.5, "ret": 16, "thl": 295, "code": "75AN"}, {"shell": "Pioneer™", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.9, "ret": 19, "thl": 303, "code": "75BN"}, {"shell": "Pioneer™", "thermal": "Titanium SL2", "moisture": "Stedair Gold", "tpp": 35, "ret": 20, "thl": 289, "code": "75TN"}, {"shell": "Pioneer™", "thermal": "Glide Ice Pure", "moisture": "Stedair Gold", "tpp": 41.1, "ret": 23, "thl": 256, "code": "75VN"}, {"shell": "Pioneer™", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 36.5, "ret": 16, "thl": 295, "code": "75WN"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH Prime Moisture Barrier", "tpp": 41, "ret": null, "thl": null, "code": "8022"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.1, "ret": null, "thl": null, "code": "80I3"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Caldura SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.3, "ret": null, "thl": null, "code": "80Q3"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 40.4, "ret": null, "thl": null, "code": "80T3"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 39.9, "ret": null, "thl": null, "code": "802D"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 38.9, "ret": null, "thl": null, "code": "80ID"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Caldura SL2", "moisture": "Stedair 3000", "tpp": 39.4, "ret": null, "thl": null, "code": "80QD"}, {"shell": "05WKRS7-60-AL8 / 05WKRS7-60-AL8-M", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 39.7, "ret": null, "thl": null, "code": "80TD"}, {"shell": "Advance", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 38.7, "ret": 19, "thl": 256, "code": "89I2"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.8, "ret": 27, "thl": 229, "code": "89A3"}, {"shell": "Advance", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.5, "ret": 28, "thl": 257, "code": "89B3"}, {"shell": "Advance", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.9, "ret": 25, "thl": 271, "code": "89I3"}, {"shell": "Advance", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.3, "ret": 28, "thl": 249, "code": "89T3"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.8, "ret": 27, "thl": 229, "code": "89W3"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 40.1, "ret": 21, "thl": 223, "code": "89AD"}, {"shell": "Advance", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 40.6, "ret": 18, "thl": 279, "code": "89ID"}, {"shell": "Advance", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 39.8, "ret": 23, "thl": 243, "code": "89TD"}, {"shell": "Advance", "thermal": "Glide Ice Pure", "moisture": "Stedair 3000", "tpp": 46, "ret": 27, "thl": 210, "code": "89VD"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 40.1, "ret": 21, "thl": 223, "code": "89WD"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 38.5, "ret": 20, "thl": 229, "code": "89AG"}, {"shell": "Advance", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 37.8, "ret": 20, "thl": 265, "code": "89BG"}, {"shell": "Advance", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 4000", "tpp": 37.1, "ret": 20, "thl": 273, "code": "89IG"}, {"shell": "Advance", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 37.7, "ret": 21, "thl": 257, "code": "89TG"}, {"shell": "Advance", "thermal": "Glide Ice Pure", "moisture": "Stedair 4000", "tpp": 44.4, "ret": 24, "thl": 231, "code": "89VG"}, {"shell": "Advance", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 38.5, "ret": 20, "thl": 229, "code": "89WG"}, {"shell": "Advance", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35.6, "ret": 20, "thl": 270, "code": "89BN"}, {"shell": "Flex7", "thermal": "Q8", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 36.7, "ret": 21, "thl": 253, "code": "9622"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.3, "ret": 18, "thl": 265, "code": "96A2"}, {"shell": "Flex7", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 39.8, "ret": 19, "thl": 257, "code": "96B2"}, {"shell": "Flex7", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.1, "ret": 19, "thl": 272, "code": "96I2"}, {"shell": "Flex7", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 36.9, "ret": 19, "thl": 250, "code": "96K2"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 35.7, "ret": 18, "thl": 252, "code": "96T2"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Prime Moisture Barrier", "tpp": 37.3, "ret": 18, "thl": 265, "code": "96W2"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 40.8, "ret": 25, "thl": 271, "code": "96A3"}, {"shell": "Flex7", "thermal": "Glide Ice 2-Layer", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.1, "ret": 27, "thl": 272, "code": "96B3"}, {"shell": "Flex7", "thermal": "Glide Ice with PBI G2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 38.6, "ret": 30, "thl": 252, "code": "96H3"}, {"shell": "Flex7", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 35.2, "ret": 25, "thl": 300, "code": "96I3"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 36.9, "ret": 28, "thl": 262, "code": "96T3"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 40.8, "ret": 25, "thl": 271, "code": "96W3"}, {"shell": "Flex7", "thermal": "Quantum 3D SL2", "moisture": "GORE-TEX CROSSTECH® Black Moisture Barrier", "tpp": 39.2, "ret": 26, "thl": 264, "code": "96Z3"}, {"shell": "Flex7", "thermal": "MPG S000108003 Equinox 3L", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 37.7, "ret": 37, "thl": 240, "code": "96K4"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35.8, "ret": 32, "thl": 253, "code": "96T4"}, {"shell": "Flex7", "thermal": "Titanium with Nomex® Nano", "moisture": "GORE-TEX CROSSTECH® Innovate Moisture Barrier", "tpp": 35, "ret": 33, "thl": 267, "code": "96U4"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "GORE-TEX CROSSTECH® Endure Moisture Barrier", "tpp": 35.7, "ret": 20, "thl": 268, "code": "96T7"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 41.4, "ret": 31, "thl": 256, "code": "96TA"}, {"shell": "Flex7", "thermal": "Titanium with Nomex® Nano", "moisture": "MPG S000108100 Milliken Assure™", "tpp": 42.4, "ret": 29, "thl": 278, "code": "96UA"}, {"shell": "Flex7", "thermal": "Q8", "moisture": "Stedair 3000", "tpp": 38, "ret": 24, "thl": 227, "code": "962D"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36, "ret": 18, "thl": 272, "code": "96AD"}, {"shell": "Flex7", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 3000", "tpp": 37.2, "ret": 22, "thl": 264, "code": "96BD"}, {"shell": "Flex7", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 3000", "tpp": 36, "ret": 19, "thl": 275, "code": "96ID"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "Stedair 3000", "tpp": 35.4, "ret": 21, "thl": 270, "code": "96TD"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair 3000", "tpp": 36, "ret": 18, "thl": 272, "code": "96WD"}, {"shell": "Flex7", "thermal": "Quantum 3D SL2", "moisture": "Stedair 3000", "tpp": 41.8, "ret": 22, "thl": 242, "code": "96ZD"}, {"shell": "Flex7", "thermal": "Q8", "moisture": "Stedair 4000", "tpp": 39.5, "ret": 22, "thl": 249, "code": "962G"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 37.5, "ret": 19, "thl": 239, "code": "96AG"}, {"shell": "Flex7", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair 4000", "tpp": 39, "ret": 20, "thl": 286, "code": "96BG"}, {"shell": "Flex7", "thermal": "MPG S000108001 CoreCXP 2L", "moisture": "Stedair 4000", "tpp": 35.9, "ret": 17, "thl": 288, "code": "96IG"}, {"shell": "Flex7", "thermal": "Titanium SL2", "moisture": "Stedair 4000", "tpp": 39.5, "ret": 20, "thl": 283, "code": "96TG"}, {"shell": "Flex7", "thermal": "Titanium with Nomex® Nano", "moisture": "Stedair 4000", "tpp": 35.1, "ret": 19, "thl": 305, "code": "96UG"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair 4000", "tpp": 37.5, "ret": 19, "thl": 239, "code": "96WG"}, {"shell": "Flex7", "thermal": "Quantum 3D SL2", "moisture": "Stedair 4000", "tpp": 39.4, "ret": 20, "thl": 261, "code": "96ZG"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 20, "thl": 289, "code": "96AN"}, {"shell": "Flex7", "thermal": "Glide Ice 2-Layer", "moisture": "Stedair Gold", "tpp": 35, "ret": 20, "thl": 295, "code": "96BN"}, {"shell": "Flex7", "thermal": "Glide Ice with PBI G2", "moisture": "Stedair Gold", "tpp": 37.9, "ret": 22, "thl": 268, "code": "96HN"}, {"shell": "Flex7", "thermal": "Defender M SL2", "moisture": "Stedair Gold", "tpp": 35.2, "ret": 20, "thl": 289, "code": "96WN"}, {"shell": "Flex7", "thermal": "Quantum 3D SL2", "moisture": "Stedair Gold", "tpp": 35.6, "ret": 20, "thl": 271, "code": "96ZN"}];
 
-// ── Helpers ─────────────────────────────────────────────────────────────────
-const fmt = v => (v === null || v === undefined) ? 'N/A' : v;
-
-function metricCard(label, value, unit, icon, cls, desc) {
-  return `<div class="metric ${cls}">
-    <div class="metric-icon">${icon}</div>
-    <div class="metric-value">${fmt(value)}</div>
-    <div class="metric-unit">${unit}</div>
-    <div class="metric-label">${label}</div>
-    <div class="metric-desc">${desc}</div>
-  </div>`;
+// ── Rating functions ──────────────────────────────────────────────────────────
+function tppRating(v) {
+  if (v === null || v === undefined) return null;
+  if (v > 42.5)  return { tier:'encapsulated', badge:'Too High',  cls:'badge-low',      label:'Over-Encapsulated' };
+  if (v >= 40)   return { tier:'excellent',    badge:'Excellent', cls:'badge-excellent', label:'Excellent' };
+  if (v >= 38.6) return { tier:'good',         badge:'Good',      cls:'badge-good',      label:'Good' };
+  if (v >= 37)   return { tier:'moderate',     badge:'Moderate',  cls:'badge-moderate',  label:'Moderate' };
+  return               { tier:'minimum',       badge:'Minimum',   cls:'badge-minimum',   label:'Minimum' };
+}
+function thlRating(v) {
+  if (v === null || v === undefined) return null;
+  if (v > 300)  return { tier:'excellent', badge:'Excellent', cls:'badge-excellent', label:'Excellent' };
+  if (v > 285)  return { tier:'great',     badge:'Great',     cls:'badge-great',     label:'Great' };
+  if (v >= 265) return { tier:'good',      badge:'Good',      cls:'badge-good',      label:'Good' };
+  if (v >= 240) return { tier:'moderate',  badge:'Moderate',  cls:'badge-moderate',  label:'Moderate' };
+  if (v >= 215) return { tier:'low',       badge:'Low',       cls:'badge-low',       label:'Low' };
+  return              { tier:'minimum',    badge:'Minimum',   cls:'badge-minimum',   label:'Minimum / Too Low' };
+}
+function retRating(v) {
+  if (v === null || v === undefined) return null;
+  if (v <= 20)   return { tier:'excellent', badge:'Excellent', cls:'badge-excellent', label:'Excellent' };
+  if (v <= 24.9) return { tier:'good',      badge:'Good',      cls:'badge-good',      label:'Good' };
+  if (v <= 30)   return { tier:'moderate',  badge:'Moderate',  cls:'badge-moderate',  label:'Moderate' };
+  return               { tier:'low',        badge:'Low',       cls:'badge-low',       label:'Low / Minimum' };
 }
 
-function buildResultHTML(r, showComposite=false) {
-  let header = '';
-  if (showComposite) {
-    header = `<div class="result-header">
-      <span class="code-badge">Code: ${r.code}</span>
-      <div class="composite-name">
-        ${r.shell}<br>
-        ${r.thermal} · ${r.moisture}
-      </div>
-    </div>`;
+// ── Descriptions ──────────────────────────────────────────────────────────────
+function tppDesc(v, tier) {
+  if (tier === 'encapsulated') return 'At ' + v + ' cal/cm\u00b2 this composite exceeds the practical upper limit. The wearer gains maximum thermal shielding but risks not sensing dangerous heat in time to react.';
+  if (tier === 'excellent')    return 'At ' + v + ' cal/cm\u00b2 this composite delivers outstanding thermal protection \u2014 well above the NFPA 1970 minimum with significant margin before injury threshold.';
+  if (tier === 'good')         return 'At ' + v + ' cal/cm\u00b2 thermal protection is solid, comfortably above the minimum with meaningful safety margin.';
+  if (tier === 'moderate')     return 'At ' + v + ' cal/cm\u00b2 thermal protection meets NFPA 1970 with moderate margin. Adequate for most environments.';
+  return 'At ' + v + ' cal/cm\u00b2 this composite just clears the NFPA 1970 minimum of 35. The safety margin above the threshold is limited.';
+}
+function retDesc(v, tier) {
+  if (tier === 'excellent') return 'RET of ' + v + ' is outstanding \u2014 among the best in the lineup. Heat escapes the system very efficiently, especially critical once the firefighter is sweating and gear is wet.';
+  if (tier === 'good')      return 'RET of ' + v + ' is good. Evaporative heat transfer is above average \u2014 the wearer will off-gas heat effectively during work cycles.';
+  if (tier === 'moderate')  return 'RET of ' + v + ' is moderate. Some evaporative heat will be retained, particularly once gear is wet. The wearer may notice more heat buildup during extended activity.';
+  return 'RET of ' + v + ' is high \u2014 heat off-gassing is significantly restricted once gear is wet from perspiration. Rehabilitation time between work cycles becomes increasingly important.';
+}
+function thlDesc(v, tier) {
+  if (tier === 'excellent') return 'THL of ' + v + ' W/m\u00b2 is exceptional \u2014 among the top performers in the lineup. The wearer will feel noticeably cooler and more comfortable during sustained operations.';
+  if (tier === 'great')     return 'THL of ' + v + ' W/m\u00b2 is great. Heat dissipation is very strong \u2014 most firefighters will notice the comfort advantage over lower-THL gear.';
+  if (tier === 'good')      return 'THL of ' + v + ' W/m\u00b2 is good. The system manages heat load well and provides comfortable wear across most work durations.';
+  if (tier === 'moderate')  return 'THL of ' + v + ' W/m\u00b2 is moderate. Adequate heat loss, though the wearer may notice more heat buildup during longer operations versus higher-THL options.';
+  if (tier === 'low')       return 'THL of ' + v + ' W/m\u00b2 is low. The composite retains significant body heat \u2014 the wearer will feel warmer during activity and rehab between cycles is more critical.';
+  return 'THL of ' + v + ' W/m\u00b2 is at or near the NFPA 1970 minimum. This composite retains a lot of heat. It typically trades comfort for higher thermal protection.';
+}
+function buildOverall(tppR, retR, thlR) {
+  if (!tppR && !retR && !thlR) return '';
+  if (!retR && !thlR) return 'RET and THL data not available for this composite. TPP meets NFPA 1970.';
+  var tppGood = tppR && (tppR.tier === 'good' || tppR.tier === 'excellent');
+  var tppOver = tppR && tppR.tier === 'encapsulated';
+  var retGood = retR && (retR.tier === 'excellent' || retR.tier === 'good');
+  var retBad  = retR && retR.tier === 'low';
+  var thlGood = thlR && (thlR.tier === 'good' || thlR.tier === 'great' || thlR.tier === 'excellent');
+  var thlBad  = thlR && (thlR.tier === 'minimum' || thlR.tier === 'low');
+  if (tppOver) return 'This composite prioritizes maximum thermal shielding to the point where the wearer may not feel heat cues in time. Best suited for specialized operations with heightened monitoring protocols.';
+  if (tppGood && retGood && thlGood) return 'This is a well-rounded, high-performing composite. Strong protection, excellent breathability, and good heat dissipation make it a solid all-around choice.';
+  if (tppGood && (retBad || thlBad)) return 'This composite leans heavily toward thermal protection. The trade-off is reduced breathability and heat dissipation \u2014 the wearer stays well-protected but will feel the heat during sustained work.';
+  if (!tppGood && retGood && thlGood) return 'This composite is optimized for wearer comfort and breathability. It meets NFPA 1970 thermal requirements while excelling at heat management \u2014 a strong fit for high-activity deployments where heat stress is a concern.';
+  if (retBad && thlBad) return 'Protection-first composite. The wearer trades comfort for thermal margin. Rehabilitation between work cycles is essential, particularly in warm environments.';
+  return 'This composite provides balanced NFPA 1970-compliant performance. Review the individual values above to determine the best fit for your department\'s priorities.';
+}
+
+// ── Tailboard Truth builder ────────────────────────────────────────────────────
+function buildSummaryHTML(r) {
+  var tppR = tppRating(r.tpp);
+  var thlR = thlRating(r.thl);
+  var retR = retRating(r.ret);
+  var rowsHTML = '';
+  if (tppR) rowsHTML += '<div class="summary-row"><span class="summary-badge ' + tppR.cls + '">' + tppR.badge + '</span><span class="summary-text"><strong>TPP ' + r.tpp + ':</strong> ' + tppDesc(r.tpp, tppR.tier) + '</span></div>';
+  if (retR) rowsHTML += '<div class="summary-row"><span class="summary-badge ' + retR.cls + '">' + retR.badge + '</span><span class="summary-text"><strong>RET ' + r.ret + ':</strong> ' + retDesc(r.ret, retR.tier) + '</span></div>';
+  if (thlR) rowsHTML += '<div class="summary-row"><span class="summary-badge ' + thlR.cls + '">' + thlR.badge + '</span><span class="summary-text"><strong>THL ' + r.thl + ':</strong> ' + thlDesc(r.thl, thlR.tier) + '</span></div>';
+
+  var warnList = [];
+  if (tppR && tppR.tier === 'encapsulated') {
+    warnList.push('<strong>Over-Encapsulation Risk:</strong> TPP above 42.5 cal/cm\u00b2 means this composite is so thermally protective that the wearer may not feel dangerous heat levels until it is too late to react. This can delay the instinctive response to exit a high-heat environment. Use with caution and ensure heightened situational awareness protocols are in place.');
   }
-  return `<div class="card results">
-    ${header}
-    <div class="metrics">
-      ${metricCard('TPP', r.tpp, 'cal/cm²', '🔥', 'tpp', 'Thermal Protective Performance')}
-      ${metricCard('RET', r.ret, 'm²·Pa/W', '💧', 'ret', 'Resistance to Evaporative Heat')}
-      ${metricCard('THL', r.thl, 'W/m²', '🌡️', 'thl', 'Total Heat Loss')}
-    </div>
-  </div>`;
+  if (tppR && tppR.tier === 'minimum') {
+    warnList.push('<strong>Minimum Thermal Protection:</strong> TPP of ' + r.tpp + ' cal/cm\u00b2 meets the NFPA 1970 floor but provides limited margin above it. In a flash fire or sudden high-heat event the window before injury is narrow.');
+  }
+  if ((thlR && (thlR.tier === 'minimum' || thlR.tier === 'low')) || (retR && retR.tier === 'low')) {
+    var parts = [];
+    if (thlR && (thlR.tier === 'minimum' || thlR.tier === 'low')) parts.push('low THL (' + r.thl + ' W/m\u00b2)');
+    if (retR && retR.tier === 'low') parts.push('high RET (' + r.ret + ' m\u00b2\u00b7Pa/W)');
+    warnList.push('<strong>Elevated Overheating Risk:</strong> This composite has ' + parts.join(' and ') + ', limiting the body\'s ability to shed heat \u2014 especially once gear is wet from sweat. Strict rehabilitation and hydration protocols are essential.');
+  }
+  var warnings = '';
+  if (warnList.length) {
+    warnings = '<div class="summary-warnings">' + warnList.map(function(w){ return '<div class="summary-warn-item">\u26a0\ufe0f ' + w + '</div>'; }).join('') + '</div>';
+  }
+  var overall = buildOverall(tppR, retR, thlR);
+  return '<div class="summary-card"><div class="summary-title">\uD83D\uDE92 Tailboard Truth</div><div class="summary-rows">' + rowsHTML + '</div>' + warnings + (overall ? '<div class="summary-overall">' + overall + '</div>' : '') + '</div>';
 }
 
-// ── Mode switch ──────────────────────────────────────────────────────────────
-let currentMode = 'dropdown';
+// ── Metric card & result builder ──────────────────────────────────────────────
+function fmt(v) { return (v === null || v === undefined) ? 'N/A' : v; }
+function metricCard(label, value, unit, icon, cls, desc) {
+  return '<div class="metric ' + cls + '"><div class="metric-icon">' + icon + '</div><div class="metric-value">' + fmt(value) + '</div><div class="metric-unit">' + unit + '</div><div class="metric-label">' + label + '</div><div class="metric-desc">' + desc + '</div></div>';
+}
+function buildResultHTML(r) {
+  var header = '<div class="result-header"><span class="code-badge">Code: ' + r.code + '</span><div class="composite-name">' + r.shell + '<br>' + r.thermal + ' \u00b7 ' + r.moisture + '</div></div>';
+  return '<div class="card results">' + header + '<div class="metrics">' +
+    metricCard('TPP', r.tpp, 'cal/cm\u00b2', '\uD83D\uDD25', 'tpp', 'Thermal Protective Performance') +
+    metricCard('RET', r.ret, 'm\u00b2\u00b7Pa/W', '\uD83D\uDCA7', 'ret', 'Resistance to Evaporative Heat') +
+    metricCard('THL', r.thl, 'W/m\u00b2', '\uD83C\uDF21\uFE0F', 'thl', 'Total Heat Loss') +
+    '</div></div>' + buildSummaryHTML(r);
+}
+
+// ── Mode switch ───────────────────────────────────────────────────────────────
+var currentMode = 'dropdown';
 function switchMode(mode) {
   currentMode = mode;
-  document.getElementById('panel-dropdown').style.display = mode==='dropdown' ? '' : 'none';
-  document.getElementById('panel-code').style.display     = mode==='code'     ? '' : 'none';
-  document.getElementById('tab-dropdown').classList.toggle('active', mode==='dropdown');
-  document.getElementById('tab-code').classList.toggle('active', mode==='code');
-  document.getElementById('tab-dropdown').setAttribute('aria-selected', mode==='dropdown');
-  document.getElementById('tab-code').setAttribute('aria-selected', mode==='code');
+  ['dropdown','code','range'].forEach(function(m) {
+    document.getElementById('panel-' + m).style.display = mode === m ? '' : 'none';
+    document.getElementById('tab-' + m).classList.toggle('active', mode === m);
+    document.getElementById('tab-' + m).setAttribute('aria-selected', mode === m);
+  });
 }
 
-// ── Dropdown logic ───────────────────────────────────────────────────────────
+// ── Dropdown logic ────────────────────────────────────────────────────────────
 function populateSelect(el, items, placeholder) {
-  el.innerHTML = `<option value="">${placeholder}</option>`;
-  items.forEach(v => { const o=document.createElement('option'); o.value=o.textContent=v; el.appendChild(o); });
+  el.innerHTML = '<option value="">' + placeholder + '</option>';
+  items.forEach(function(v) { var o = document.createElement('option'); o.value = o.textContent = v; el.appendChild(o); });
 }
-
-// Populate shells on load
-const shells = [...new Set(DATA.map(r=>r.shell))];
+var shells = Array.from(new Set(DATA.map(function(r){ return r.shell; })));
 populateSelect(document.getElementById('sel-shell'), shells, '— Select Outer Shell —');
 
 function onShellChange() {
-  const shell = document.getElementById('sel-shell').value;
-  const thermals = [...new Set(DATA.filter(r=>r.shell===shell).map(r=>r.thermal))];
-  const tEl = document.getElementById('sel-thermal');
-  const mEl = document.getElementById('sel-moisture');
+  var shell = document.getElementById('sel-shell').value;
+  var tEl = document.getElementById('sel-thermal');
+  var mEl = document.getElementById('sel-moisture');
   populateSelect(tEl, [], '— Select Thermal Barrier —');
   populateSelect(mEl, [], '— Select Moisture Barrier —');
-  tEl.disabled = !shell;
-  mEl.disabled = true;
-  if (shell) populateSelect(tEl, thermals, '— Select Thermal Barrier —');
+  tEl.disabled = !shell; mEl.disabled = true;
+  if (shell) populateSelect(tEl, Array.from(new Set(DATA.filter(function(r){ return r.shell === shell; }).map(function(r){ return r.thermal; }))), '— Select Thermal Barrier —');
   document.getElementById('result-dropdown').innerHTML = '';
   document.getElementById('clear-dropdown').style.display = 'none';
 }
-
 function onThermalChange() {
-  const shell   = document.getElementById('sel-shell').value;
-  const thermal = document.getElementById('sel-thermal').value;
-  const mEl     = document.getElementById('sel-moisture');
-  const moistures = [...new Set(DATA.filter(r=>r.shell===shell&&r.thermal===thermal).map(r=>r.moisture))];
+  var shell = document.getElementById('sel-shell').value;
+  var thermal = document.getElementById('sel-thermal').value;
+  var mEl = document.getElementById('sel-moisture');
   populateSelect(mEl, [], '— Select Moisture Barrier —');
   mEl.disabled = !thermal;
-  if (thermal) populateSelect(mEl, moistures, '— Select Moisture Barrier —');
+  if (thermal) populateSelect(mEl, Array.from(new Set(DATA.filter(function(r){ return r.shell === shell && r.thermal === thermal; }).map(function(r){ return r.moisture; }))), '— Select Moisture Barrier —');
   document.getElementById('result-dropdown').innerHTML = '';
   document.getElementById('clear-dropdown').style.display = 'none';
 }
-
 function onMoistureChange() {
-  const shell    = document.getElementById('sel-shell').value;
-  const thermal  = document.getElementById('sel-thermal').value;
-  const moisture = document.getElementById('sel-moisture').value;
-  const resultEl = document.getElementById('result-dropdown');
-  const clearEl  = document.getElementById('clear-dropdown');
-  if (!moisture) { resultEl.innerHTML=''; clearEl.style.display='none'; return; }
-  const r = DATA.find(d=>d.shell===shell&&d.thermal===thermal&&d.moisture===moisture);
-  if (r) { resultEl.innerHTML=buildResultHTML(r, false); clearEl.style.display='block'; }
+  var shell = document.getElementById('sel-shell').value;
+  var thermal = document.getElementById('sel-thermal').value;
+  var moisture = document.getElementById('sel-moisture').value;
+  var resultEl = document.getElementById('result-dropdown');
+  var clearEl = document.getElementById('clear-dropdown');
+  if (!moisture) { resultEl.innerHTML = ''; clearEl.style.display = 'none'; return; }
+  var r = DATA.find(function(d){ return d.shell === shell && d.thermal === thermal && d.moisture === moisture; });
+  if (r) { resultEl.innerHTML = buildResultHTML(r); clearEl.style.display = 'block'; }
 }
-
 function clearDropdown() {
-  ['sel-shell','sel-thermal','sel-moisture'].forEach(id => {
-    const el = document.getElementById(id);
-    el.selectedIndex = 0;
+  ['sel-shell','sel-thermal','sel-moisture'].forEach(function(id) {
+    var el = document.getElementById(id); el.selectedIndex = 0;
     if (id !== 'sel-shell') el.disabled = true;
   });
-  // re-seed shells
   populateSelect(document.getElementById('sel-shell'), shells, '— Select Outer Shell —');
   document.getElementById('result-dropdown').innerHTML = '';
   document.getElementById('clear-dropdown').style.display = 'none';
 }
 
-// ── Code lookup ──────────────────────────────────────────────────────────────
+// ── Code lookup ───────────────────────────────────────────────────────────────
 function lookupCode() {
-  const raw   = document.getElementById('inp-code').value.trim().toUpperCase();
-  const errEl = document.getElementById('code-error');
-  const resEl = document.getElementById('result-code');
-  const clrEl = document.getElementById('clear-code');
-  if (!raw) { errEl.textContent='Please enter a composite code.'; errEl.style.display='block'; resEl.innerHTML=''; clrEl.style.display='none'; return; }
-  const r = DATA.find(d=>d.code.toUpperCase()===raw);
-  if (r) {
-    errEl.style.display='none';
-    resEl.innerHTML = buildResultHTML(r, true);
-    clrEl.style.display = 'block';
-  } else {
-    errEl.textContent = `No composite found for "${raw}". Check the code and try again.`;
-    errEl.style.display = 'block';
-    resEl.innerHTML = '';
-    clrEl.style.display = 'none';
-  }
+  var raw = document.getElementById('inp-code').value.trim().toUpperCase();
+  var errEl = document.getElementById('code-error');
+  var resEl = document.getElementById('result-code');
+  var clrEl = document.getElementById('clear-code');
+  if (!raw) { errEl.textContent = 'Please enter a composite code.'; errEl.style.display = 'block'; resEl.innerHTML = ''; clrEl.style.display = 'none'; return; }
+  var r = DATA.find(function(d){ return d.code.toUpperCase() === raw; });
+  if (r) { errEl.style.display = 'none'; resEl.innerHTML = buildResultHTML(r); clrEl.style.display = 'block'; }
+  else { errEl.textContent = 'No composite found for "' + raw + '". Check the code and try again.'; errEl.style.display = 'block'; resEl.innerHTML = ''; clrEl.style.display = 'none'; }
 }
-
 function clearCode() {
   document.getElementById('inp-code').value = '';
   document.getElementById('code-error').style.display = 'none';
@@ -390,28 +480,88 @@ function clearCode() {
   document.getElementById('clear-code').style.display = 'none';
 }
 
-// ── PWA Install prompt ───────────────────────────────────────────────────────
-let deferredPrompt = null;
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
+// ── Desired Range ─────────────────────────────────────────────────────────────
+// Meets-or-exceeds logic:
+// TPP higher is better, so "good" means v >= 38.6 (and caps at 42.5 to exclude over-encapsulated)
+// THL higher is better, so "good" means v >= 265
+// RET lower is better, so "good" means v <= 24.9
+function tppMeetsOrExceeds(v, tier) {
+  if (v === null) return false;
+  if (v > 42.5) return false; // over-encapsulated never returned
+  if (tier === 'minimum')  return v >= 35;
+  if (tier === 'moderate') return v >= 37;
+  if (tier === 'good')     return v >= 38.6;
+  if (tier === 'excellent')return v >= 40 && v <= 42.5;
+  return false;
+}
+function thlMeetsOrExceeds(v, tier) {
+  if (v === null) return false;
+  if (tier === 'minimum')  return v >= 205;
+  if (tier === 'low')      return v >= 215;
+  if (tier === 'moderate') return v >= 240;
+  if (tier === 'good')     return v >= 265;
+  if (tier === 'great')    return v > 285;
+  if (tier === 'excellent')return v > 300;
+  return false;
+}
+function retMeetsOrExceeds(v, tier) {
+  if (v === null) return false;
+  if (tier === 'low')      return v <= 30;  // anything 30 or below is at least low
+  if (tier === 'moderate') return v <= 30;  // moderate or better
+  if (tier === 'good')     return v <= 24.9;
+  if (tier === 'excellent')return v <= 20;
+  return false;
+}
+function onRangeChange() {
+  var tppTier = document.getElementById('sel-range-tpp').value;
+  var thlTier = document.getElementById('sel-range-thl').value;
+  var retTier = document.getElementById('sel-range-ret').value;
+  var resEl = document.getElementById('result-range');
+  var clrEl = document.getElementById('clear-range');
+  if (!tppTier && !thlTier && !retTier) { resEl.innerHTML = ''; clrEl.style.display = 'none'; return; }
+  var results = DATA.filter(function(r) {
+    if (tppTier && r.tpp === null) return false;
+    if (thlTier && r.thl === null) return false;
+    if (retTier && r.ret === null) return false;
+    if (tppTier && !tppMeetsOrExceeds(r.tpp, tppTier)) return false;
+    if (thlTier && !thlMeetsOrExceeds(r.thl, thlTier)) return false;
+    if (retTier && !retMeetsOrExceeds(r.ret, retTier)) return false;
+    return true;
+  });
+  clrEl.style.display = 'block';
+  if (results.length === 0) {
+    resEl.innerHTML = '<div class="summary-card" style="margin-top:14px"><div class="summary-title">No Results</div><div class="summary-text">No composites match all selected criteria. Try broadening your selection.</div></div>';
+    return;
+  }
+  var items = results.map(function(r) {
+    var tppR = tppRating(r.tpp); var thlR = thlRating(r.thl); var retR = retRating(r.ret);
+    return '<div class="range-item"><div class="range-code">' + r.code + '</div><div class="range-info"><div class="range-name">' + r.shell + ' \u00b7 ' + r.thermal + ' \u00b7 ' + r.moisture + '</div><div class="range-metrics"><span class="range-pill pill-tpp">TPP ' + (r.tpp !== null ? r.tpp : 'N/A') + (tppR ? ' \u00b7 ' + tppR.label : '') + '</span><span class="range-pill pill-ret">RET ' + (r.ret !== null ? r.ret : 'N/A') + (retR ? ' \u00b7 ' + retR.label : '') + '</span><span class="range-pill pill-thl">THL ' + (r.thl !== null ? r.thl : 'N/A') + (thlR ? ' \u00b7 ' + thlR.label : '') + '</span></div></div></div>';
+  }).join('');
+  resEl.innerHTML = '<div class="range-results"><div class="range-count">' + results.length + ' composite' + (results.length === 1 ? '' : 's') + ' found</div><div class="range-list">' + items + '</div></div>';
+}
+function clearRange() {
+  ['sel-range-tpp','sel-range-thl','sel-range-ret'].forEach(function(id){ document.getElementById(id).value = ''; });
+  document.getElementById('result-range').innerHTML = '';
+  document.getElementById('clear-range').style.display = 'none';
+}
+
+// ── PWA ───────────────────────────────────────────────────────────────────────
+var deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', function(e) {
+  e.preventDefault(); deferredPrompt = e;
   document.getElementById('install-banner').classList.remove('hidden');
 });
 function triggerInstall() {
-  if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(()=>{ deferredPrompt=null; dismissInstall(); }); }
+  if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(function(){ deferredPrompt = null; dismissInstall(); }); }
 }
-function dismissInstall() {
-  document.getElementById('install-banner').classList.add('hidden');
-}
+function dismissInstall() { document.getElementById('install-banner').classList.add('hidden'); }
 window.addEventListener('appinstalled', dismissInstall);
-
-// ── Service Worker registration ───────────────────────────────────────────────
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () =>
-    navigator.serviceWorker.register('./service-worker.js')
-      .catch(err => console.warn('SW registration failed:', err))
-  );
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./service-worker.js').catch(function(err){ console.warn('SW registration failed:', err); });
+  });
 }
+
 </script>
 </body>
 </html>
