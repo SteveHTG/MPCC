@@ -1,8 +1,8 @@
 // ── Morning Pride — MP Composite Crafter PWA ─────────────────────────────────
-// Service Worker v1.0 — Cache-first, fully offline capable
+// Service Worker v3.0 — Cache-first, fully offline capable
 // Update CACHE_NAME whenever you redeploy to force clients to refresh.
 
-const CACHE_NAME = 'mp-crafter-v1';
+const CACHE_NAME = 'mp-crafter-v3';
 
 const FILES_TO_CACHE = [
   './index.html',
@@ -39,29 +39,17 @@ self.addEventListener('activate', event => {
 });
 
 // ── Fetch: cache-first strategy ───────────────────────────────────────────────
-// Serve from cache instantly; fall back to network if not cached.
 self.addEventListener('fetch', event => {
-  // Only handle GET requests for same-origin resources
   if (event.request.method !== 'GET') return;
-
   event.respondWith(
     caches.match(event.request).then(cached => {
-      if (cached) {
-        // Serve from cache — works offline
-        return cached;
-      }
-      // Not in cache — try network, then cache the response for next time
+      if (cached) return cached;
       return fetch(event.request).then(response => {
-        if (!response || response.status !== 200 || response.type !== 'basic') {
-          return response;
-        }
+        if (!response || response.status !== 200 || response.type !== 'basic') return response;
         const responseToCache = response.clone();
         caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseToCache));
         return response;
-      }).catch(() => {
-        // Offline and not cached — return the main app page as fallback
-        return caches.match('./index.html');
-      });
+      }).catch(() => caches.match('./index.html'));
     })
   );
 });
