@@ -1,8 +1,8 @@
 // ── Morning Pride — MP Composite Crafter PWA ─────────────────────────────────
-// Service Worker v3.0 — Cache-first, fully offline capable
+// Service Worker v4.0 — Cache-first, fully offline capable
 // Update CACHE_NAME whenever you redeploy to force clients to refresh.
 
-const CACHE_NAME = 'mp-crafter-v3';
+const CACHE_NAME = 'mp-crafter-v4';
 
 const FILES_TO_CACHE = [
   './index.html',
