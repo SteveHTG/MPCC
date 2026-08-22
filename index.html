@@ -237,9 +237,10 @@
   .ps-meta { display:flex; justify-content:space-between; align-items:baseline; }
   .ps-meta .ps-h { font-size:15px; font-weight:800; color:#16294a; letter-spacing:.02em; }
   .ps-meta .ps-date { font-size:11px; color:#5b6b8c; }
-  .ps-table { width:100%; border-collapse:collapse; border:1px solid #d3dae8; border-radius:8px; overflow:hidden; }
-  .ps-table th, .ps-table td { border:1px solid #d3dae8; padding:13px 11px; text-align:left; vertical-align:top; font-size:11px; }
-  .ps-table .ps-rl { background:#eef1f7; font-size:9px; font-weight:800; letter-spacing:.05em;
+  .ps-table { width:100%; table-layout:fixed; border-collapse:collapse; border:1px solid #d3dae8; border-radius:8px; overflow:hidden; }
+  .ps-table th, .ps-table td { border:1px solid #d3dae8; padding:13px 11px; text-align:left; vertical-align:top;
+    font-size:11px; overflow-wrap:break-word; word-break:break-word; }
+  .ps-table .ps-rl { width:148px; background:#eef1f7; font-size:9px; font-weight:800; letter-spacing:.05em;
     text-transform:uppercase; color:#5b6b8c; white-space:nowrap; }
   .ps-table thead th { background:#16294a; color:#fff; }
   .ps-table thead .ps-rl { background:#16294a; color:#fff; }
