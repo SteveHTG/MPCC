@@ -217,14 +217,14 @@
   #print-sheet { display:none; }
   @media print {
     @page { size:letter; margin:0; }
-    html, body { background:#fff !important; }
+    html, body { background:#fff !important; height:100% !important; margin:0 !important; }
     header, .app, #install-banner { display:none !important; }
-    #print-sheet { display:block !important; }
+    #print-sheet { display:flex !important; flex-direction:column; min-height:100%; }
   }
   #print-sheet { color:#16233f; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
     -webkit-print-color-adjust:exact; print-color-adjust:exact; }
   #print-sheet * { box-sizing:border-box; }
-  .ps-header { background:#16294a; padding:26px 34px 22px; display:flex; align-items:center; gap:22px; }
+  .ps-header { background:#16294a; padding:26px 34px 22px; display:flex; align-items:center; gap:22px; flex:0 0 auto; }
   .ps-logos { display:flex; gap:12px; flex-shrink:0; }
   .ps-logo { width:88px; height:66px; background:#fff; border-radius:8px; display:flex;
     align-items:center; justify-content:center; padding:7px; }
@@ -232,13 +232,13 @@
   .ps-titlewrap { border-left:2px solid rgba(255,255,255,.18); padding-left:22px; }
   .ps-title { color:#fff; font-size:32px; font-weight:800; letter-spacing:-.01em; line-height:1; }
   .ps-sub { color:#aab6d4; font-size:12px; margin-top:7px; letter-spacing:.02em; }
-  .ps-rule { height:9px; background:#b23a3a; }
-  .ps-body { padding:26px 34px 18px; }
-  .ps-meta { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:16px; }
+  .ps-rule { height:9px; background:#b23a3a; flex:0 0 auto; }
+  .ps-body { padding:34px; flex:1 1 auto; display:flex; flex-direction:column; justify-content:center; gap:26px; }
+  .ps-meta { display:flex; justify-content:space-between; align-items:baseline; }
   .ps-meta .ps-h { font-size:15px; font-weight:800; color:#16294a; letter-spacing:.02em; }
   .ps-meta .ps-date { font-size:11px; color:#5b6b8c; }
   .ps-table { width:100%; border-collapse:collapse; border:1px solid #d3dae8; border-radius:8px; overflow:hidden; }
-  .ps-table th, .ps-table td { border:1px solid #d3dae8; padding:9px 11px; text-align:left; vertical-align:top; font-size:11px; }
+  .ps-table th, .ps-table td { border:1px solid #d3dae8; padding:13px 11px; text-align:left; vertical-align:top; font-size:11px; }
   .ps-table .ps-rl { background:#eef1f7; font-size:9px; font-weight:800; letter-spacing:.05em;
     text-transform:uppercase; color:#5b6b8c; white-space:nowrap; }
   .ps-table thead th { background:#16294a; color:#fff; }
@@ -254,11 +254,11 @@
   .ps-table td.ps-best .ps-vnum { color:#a9791e; }
   .ps-besttag { display:block; font-size:7px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:#b78a24; margin-top:3px; }
   .ps-warntag { display:block; font-size:7px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:#b23a3a; margin-top:3px; }
-  .ps-legend { margin-top:16px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .ps-legend { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
   .ps-leg { background:#f4f6fb; border:1px solid #e2e7f1; border-radius:7px; padding:9px 11px; }
   .ps-leg b { font-size:11px; color:#16294a; }
   .ps-leg span { display:block; font-size:9px; color:#5b6b8c; margin-top:3px; line-height:1.4; }
-  .ps-footer { background:#16294a; margin-top:20px; padding:16px 34px 20px; }
+  .ps-footer { background:#16294a; margin-top:0; padding:18px 34px 22px; flex:0 0 auto; }
   .ps-disc { font-size:8.5px; font-style:italic; color:#9fabc9; line-height:1.5; border-left:3px solid #b23a3a;
     padding-left:11px; margin-bottom:13px; }
   .ps-contacts { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:8px; }
