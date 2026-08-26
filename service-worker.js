@@ -2,7 +2,7 @@
 // Service Worker v8.0 — Cache-first, fully offline capable
 // Update CACHE_NAME whenever you redeploy to force clients to refresh.
 
-const CACHE_NAME = 'mp-crafter-v8';
+const CACHE_NAME = 'mp-crafter-v9';
 
 const FILES_TO_CACHE = [
   './index.html',
